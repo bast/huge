@@ -1,3 +1,4 @@
+[![PyPI badge](https://badge.fury.io/py/huge.svg)](https://badge.fury.io/py/huge)
 
 
 # huge
