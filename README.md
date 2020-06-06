@@ -7,6 +7,13 @@
 Find huge additions in Git history.
 
 
+### Installation
+
+```
+$ pip install huge
+```
+
+
 ### Command line options
 
 ```
