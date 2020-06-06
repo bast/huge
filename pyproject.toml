@@ -1,0 +1,19 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "huge"
+author = "Radovan Bast"
+author-email = "radovan.bast@uit.no"
+home-page = "https://github.com/bast/huge"
+requires=[
+    "tqdm==4.46.1",
+    "click==7.1.2",
+    "tabulate==0.8.7",
+]
+description-file="README.md"
+classifiers = ["License :: OSI Approved :: MIT License"]
+
+[tool.flit.scripts]
+huge = "huge:main"
