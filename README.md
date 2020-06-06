@@ -1,4 +1,5 @@
 [![PyPI badge](https://badge.fury.io/py/huge.svg)](https://badge.fury.io/py/huge)
+[![License](https://img.shields.io/badge/license-%20MIT-blue.svg)](LICENSE)
 
 
 # huge
