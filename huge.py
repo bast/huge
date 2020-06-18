@@ -1,6 +1,6 @@
 """Find huge additions in Git history."""
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 
 import subprocess
@@ -52,9 +52,11 @@ def main(branch, num_entries, cutoff):
     for commit in tqdm(commits):
         entries = get_file_entries(commit)
         for line in entries:
-            _, _, _, size, path = line.split()
+            s = line.split()
+            size = s[3]
             if not "-" in size:
                 if int(size) > cutoff:
+                    path = ' '.join(s[4:])  # this is done for files with spaces
                     if not (size, path) in additions_dict:
                         additions_dict[(size, path)] = commit
 
