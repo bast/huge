@@ -56,7 +56,7 @@ def main(branch, num_entries, cutoff):
             size = s[3]
             if not "-" in size:
                 if int(size) > cutoff:
-                    path = ' '.join(s[4:])  # this is done for files with spaces
+                    path = " ".join(s[4:])  # this is done for files with spaces
                     if not (size, path) in additions_dict:
                         additions_dict[(size, path)] = commit
 
@@ -71,7 +71,12 @@ def main(branch, num_entries, cutoff):
 
     rows = list(itertools.islice(additions, num_entries))
     if len(rows) > 0:
-        print(tabulate(rows, headers=["size (MB)", "path", "commit"],))
+        print(
+            tabulate(
+                rows,
+                headers=["size (MB)", "path", "commit"],
+            )
+        )
     else:
         print("no additions found")
 
