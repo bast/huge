@@ -28,7 +28,7 @@ def get_file_entries(commit):
 
 @click.command()
 @click.option(
-    "--branch", default="master", show_default=True, help="Which branch to scan."
+    "--branch", default="main", show_default=True, help="Which branch to scan."
 )
 @click.option(
     "--num-entries",

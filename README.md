@@ -22,7 +22,7 @@ $ huge --help
 Usage: huge [OPTIONS]
 
 Options:
-  --branch TEXT          Which branch to scan.  [default: master]
+  --branch TEXT          Which branch to scan.  [default: main]
   --num-entries INTEGER  How many top entries to show.  [default: 20]
   --cutoff INTEGER       Cutoff (bytes) below which to ignore entries.
                          [default: 1000000]
