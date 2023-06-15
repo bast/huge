@@ -1,13 +1,23 @@
 """Find huge additions in Git history."""
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 
 
 import subprocess
+import sys
 import itertools
 from tqdm import tqdm
 import click
 from tabulate import tabulate
+
+
+def branch_exists(branch) -> bool:
+    """Check if a branch exists."""
+    try:
+        subprocess.check_output(f"git rev-parse --quiet --verify {branch}", shell=True)
+        return True
+    except subprocess.CalledProcessError:
+        return False
 
 
 def get_all_commits_on_branch(branch):
@@ -28,7 +38,10 @@ def get_file_entries(commit):
 
 @click.command()
 @click.option(
-    "--branch", default="main", show_default=True, help="Which branch to scan."
+    "--branch",
+    default="HEAD",
+    show_default=True,
+    help="Which branch to scan. By default it will scan the currently active branch.",
 )
 @click.option(
     "--num-entries",
@@ -45,6 +58,10 @@ def get_file_entries(commit):
     help="Cutoff (bytes) below which to ignore entries.",
 )
 def main(branch, num_entries, cutoff):
+    if not branch_exists(branch):
+        sys.stderr.write(f"ERROR: branch {branch} does not exist\n")
+        sys.exit(1)
+
     commits = get_all_commits_on_branch(branch)
 
     print("scanning the history ...")

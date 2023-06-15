@@ -16,17 +16,17 @@ $ pip install huge
 
 ### Command line options
 
-```
+```console
 $ huge --help
 
 Usage: huge [OPTIONS]
 
 Options:
-  --branch TEXT          Which branch to scan.  [default: main]
+  --branch TEXT          Which branch to scan. By default it will scan the
+                         currently active branch.  [default: HEAD]
   --num-entries INTEGER  How many top entries to show.  [default: 20]
   --cutoff INTEGER       Cutoff (bytes) below which to ignore entries.
                          [default: 1000000]
-
   --help                 Show this message and exit.
 ```
 
