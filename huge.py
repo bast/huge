@@ -71,10 +71,10 @@ def main(branch, num_entries, cutoff):
         for line in entries:
             s = line.split()
             size = s[3]
-            if not "-" in size:
+            if "-" not in size:
                 if int(size) > cutoff:
                     path = " ".join(s[4:])  # this is done for files with spaces
-                    if not (size, path) in additions_dict:
+                    if (size, path) not in additions_dict:
                         additions_dict[(size, path)] = commit
 
     additions = []
